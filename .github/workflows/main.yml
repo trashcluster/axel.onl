@@ -3,7 +3,7 @@ name: Hugo to FTP
 on:
   push:
     branches:
-      - main  # Set a branch to deploy
+      - master  # Set a branch to deploy
   pull_request:
 
 jobs:
@@ -23,11 +23,12 @@ jobs:
           
 
       - name: Build Hugo
+        working-directory: axel.onl
         run: hugo --minify
 
       - name: Deploy Hugo to FTP
         uses: SamKirkland/FTP-Deploy-Action@4.0.0
         with:
           server: ftp.cluster029.hosting.ovh.net
-          username: ${{ FTP_USERNAME }}
-          password: ${{ FTP_PASSWORD }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
