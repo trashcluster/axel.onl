@@ -23,6 +23,7 @@ jobs:
           
 
       - name: Build Hugo
+        working-directory: axel.onl
         run: hugo --minify
 
       - name: Deploy Hugo to FTP
