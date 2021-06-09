@@ -32,3 +32,6 @@ jobs:
           server: ftp.cluster029.hosting.ovh.net
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./axel.onl/public/
+          server-dir: /www/
+          
