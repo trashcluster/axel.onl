@@ -1,4 +1,4 @@
-name: Hugo to FTP
+name: Hugo to GH Pages
 
 on:
   push:
@@ -24,14 +24,4 @@ jobs:
 
       - name: Build Hugo
         working-directory: axel.onl
-        run: hugo --minify
-
-      - name: Deploy Hugo to FTP
-        uses: SamKirkland/FTP-Deploy-Action@4.0.0
-        with:
-          server: ftp.cluster029.hosting.ovh.net
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./axel.onl/public/
-          server-dir: /www/
-          
+        run: hugo --minify -b https://me.axel.onl -d ../docs/
